@@ -11,10 +11,13 @@ describe('postcssHost', function() {
     var dist = fs.readFileSync(path.join(__dirname, 'dist/index.css'));
 
     var output = postcss()
-      .use(postcssHost())
+      .use(postcssHost({
+        log: true,
+        ignorePrefix: true
+      }))
       .process(src)
       .css;
-    console.log(output);
+
     expect(output).toEqual(dist.toString());
   });
 });
