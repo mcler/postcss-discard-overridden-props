@@ -1,0 +1,25 @@
+.rule1 {
+  color: red;
+  display: block;
+  display: inline;
+}
+
+.rule2 {
+  color: green;
+  display: block !important;
+  display: inline;
+}
+
+.rule3 {
+  color: blue;
+  display: block;
+  display: inline !important;
+}
+
+@media (max-width: 120px) {
+  .rule4 {
+    color: blue;
+    display: block;
+    display: inline !important;
+  }
+}
