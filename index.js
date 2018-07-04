@@ -14,7 +14,7 @@ function dedupe (options, rule, i) {
       } else {
         if (node.prop) {
           decls.push({
-            index: i,
+            indexNodex: i,
             indexDecls: decls.length,
             remove: false,
 
@@ -35,16 +35,15 @@ function dedupe (options, rule, i) {
 
         let removeIndex;
         if (resultDecl.important !== true || decl.important === true) { // was not important or overridden by important
-          removeIndex = resultDecl.index;
+          removeIndex = resultDecl.indexNodex;
           decls[resultDecl.indexDecls].remove = true;
           resultDecl = decl;
         } else { // not overridden
-          removeIndex = decl.index;
+          removeIndex = decl.indexNodex;
           decl.remove = true;
         }
 
-
-        if (options.log) {
+        if (options.log === true) {
           console.log(
             rule.selector,
             ': ',
@@ -53,8 +52,11 @@ function dedupe (options, rule, i) {
             rule.nodes[removeIndex].important ? ' !important': ''
           );
         }
-        rule.nodes[removeIndex].remove();
-        removedNumber++;
+
+        if (rule.nodes[removeIndex] && options.noDelete !== true) {
+          rule.nodes[removeIndex].remove();
+          removedNumber++;
+        }
 
 
       }
@@ -63,7 +65,6 @@ function dedupe (options, rule, i) {
 }
 
 module.exports = postcss.plugin('postcss-discard-overridden-props', (options) => {
-  // let pluginOptions = 
   options = options || {};
 
   return css => {
