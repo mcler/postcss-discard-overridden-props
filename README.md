@@ -58,7 +58,7 @@ PostCSS plugin, which discards overridden properties in every CSS rule.
 }
 ```
 
-##Options
+## Options
 * `log`: a logging flag.
 * `noDelete`: a flag whether found overridden propertil will be deleted (work only with `log` set to `true`).
 * `props`: string array of properies allowed to proccess by plugin.
