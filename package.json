@@ -1,29 +1,26 @@
 {
   "name": "@mcler/postcss-discard-overridden-props",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "PostCSS plugin, which discards overridden properties in every CSS rule",
-  "author": "Maksim Baranov",
-  "license": "MIT",
+  "keywords": [
+    "postcss"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/mcler/postcss-discard-overridden-props.git"
   },
-  "keywords": [
-    "postcss"
-  ],
+  "license": "MIT",
+  "author": "Maksim Baranov",
   "files": [
     "index.js"
   ],
   "scripts": {
     "test": "./node_modules/.bin/mocha test/index.js"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
-    "@babel/register": "^7.0.0-beta.51",
-    "expect": "^23.2.0",
+    "expect": "^23.6.0",
     "mocha": "^5.2.0",
-    "postcss": "^6.0.23"
-  },
-  "dependencies": {}
+    "postcss": "^7.0.17"
+  }
 }

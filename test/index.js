@@ -6,7 +6,7 @@ var postcss = require('postcss');
 var postcssHost = require('../index.js');
 
 describe('postcssHost', function() {
-  it('should replace :host:pseudo-class to :host(:pseudo-class)', function() {
+  it('passing all possible situations', function() {
     var src = fs.readFileSync(path.join(__dirname, 'src/index.css'));
     var dist = fs.readFileSync(path.join(__dirname, 'dist/index.css'));
 

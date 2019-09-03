@@ -4,7 +4,9 @@ var removedNumber = 0;
 var prefixRegexp = /-(webkit|moz|o|ms|khtml)-/;
 
 function ignoreProp(prop, value, ignoredProps) {
-  return ignoredProps.indexOf(prop) >= 0 || /-(webkit|moz|o|ms|khtml)-/.test(prop) || /-(webkit|moz|o|ms|khtml)-/.test(value);
+  return ignoredProps.indexOf(prop) >= 0
+    || /-(webkit|moz|o|ms|khtml)-/.test(prop)
+    || /-(webkit|moz|o|ms|khtml)-/.test(value);
 }
 
 function unprefixProp(prop) {
@@ -17,7 +19,8 @@ function optimise (options, rule) {
   const PROPS = (options.props && options.props.length) ? options.props : false;
   const IGNORE_PREFIX = options.ignorePrefix;
 
-  if (rule && rule.type === 'decl' || rule.type === 'comment') { // ignoring node types
+  // ignoring node types
+  if (rule && rule.type === 'decl' || rule.type === 'comment') {
     return;
   }
 
